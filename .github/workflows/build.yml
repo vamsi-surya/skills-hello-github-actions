@@ -1,0 +1,40 @@
+- name: step the build
+  on: push
+  
+
+  build:
+   runs-on: ubuntu-latest
+   steps:
+   - name: checkout the code
+     steps:
+      run: actions/checkout@v1
+  - name: provide ecr permisssion
+      run: aws/ecr@v1
+  - name: docker build
+      run: |
+       docker build -t ecr address .
+       docker push ecr address.
+
+  deploy:
+   runs-on: ubuntu-latest
+   - name: check-out the code
+      run: actiosn/checkout@1
+   - name: 
+      run: |
+       cd k8s/
+       zip k8s.zip k8s
+  - name: deploy to octopus
+     run: |
+      curl api.token for octopus and filename.zip 
+
+from Octopus
+lifecylcle- dev,qa ,uat, prod
+
+We have process to deploy helm charts using templetes customs
+helm install app_name ./charts -n name-space
+
+
+trunk base
+
+
+          
